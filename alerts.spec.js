@@ -17,18 +17,12 @@ await page.goto("https://demoqa.com/alerts");
 //  } )
 //  await page.locator('#timerAlertButton').click();
 
-//  page.on('dialog', async dialog =>{
-//     expect(dialog.type()).toContain("confirm");
-//      expect(dialog.message()).toContain("Do you confirm action?");
-//      await dialog.dismiss();
-//  })
-//  await page.locator('#confirmButton').click();
-
 page.on('dialog', async dialog =>{
     expect(dialog.type()).toContain("prompt");
     expect(dialog.message()).toContain("Please enter your name");
     await dialog.accept("NAVEEN");
 })
  await page.locator('#promtButton').click();
+ await page.screenshot({path:'screenshot/'+ Date.now()+'Normalss.png'});
  await page.waitForTimeout(5000);
 })
